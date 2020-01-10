@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "captcha.path",
+    "type": "java.lang.String",
+    "description": "验证码路劲"
+  },
+  {
+    "name": "captcha.length",
+    "type": "java.lang.Integer",
+    "description": "验证码长度"
+  },
+  {
+    "name": "spring.datasource.publickey",
+    "type": "java.lang.String",
+    "description": "druid数据库密码加密公钥"
+  }
+]}
