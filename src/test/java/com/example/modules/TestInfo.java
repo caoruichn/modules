@@ -2,10 +2,17 @@ package com.example.modules;
 
 import java.util.regex.Pattern;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = ModulesApplication.class)
 public class TestInfo {
 
     public static void main(String[] args) {
-        test1();
+        //test1();
         test2();
         test3();
     }
@@ -27,8 +34,8 @@ public class TestInfo {
         System.out.println(str + num);
         System.out.println("字符串行数：" + str.lines().count());
     }
-    
-    public static void test1() {
+    @Test
+    public void test1() {
         String str = "123.456a789";
         String regex = ".*456.*";
         System.out.println(str.matches(regex));
