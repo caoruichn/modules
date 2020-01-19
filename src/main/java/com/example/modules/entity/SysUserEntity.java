@@ -8,7 +8,9 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -36,11 +38,14 @@ public class SysUserEntity {
     /**
      * 登录名
      */
+    @JsonAlias(value = {"LoginName","Loginname","loginname","login_name"})
     @ApiModelProperty("登录名")
     private String loginName;
     /**
      * 密码
      */
+    //@JsonAlias和@JsonProperty
+    @JsonProperty("password")
     @ApiModelProperty("密码")
     private String pass;
     /**
