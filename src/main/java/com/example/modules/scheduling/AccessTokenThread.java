@@ -33,7 +33,8 @@ public class AccessTokenThread {
      * 定时（一天）删除过期验证码
      */
     @Async
-    @Scheduled(fixedDelay = 1000*60*60*24) //每天执行一次
+    //@Scheduled(fixedDelay = 1000*60*60*24) //每天执行一次
+    @Scheduled(cron = "0 0 1 * * ?") //每天一点执行一次
     public void removeCaptcha() {
         log.info("删除过期验证码时间-{}", new Date());
         log.info("删除过期验证码线程名-{}", Thread.currentThread().getName());

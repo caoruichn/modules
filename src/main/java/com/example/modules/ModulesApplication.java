@@ -2,6 +2,7 @@ package com.example.modules;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.spring4all.swagger.EnableSwagger2Doc;
@@ -9,15 +10,30 @@ import com.spring4all.swagger.EnableSwagger2Doc;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@SpringBootApplication
 @EnableSwagger2Doc
 @EnableScheduling // 定时任务
+@SpringBootApplication
 //@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 public class ModulesApplication {
 
     public static void main(String[] args) {
-        // SpringApplication.run(ModulesApplication.class, args);
-
+        boolean byOs = false;
+        if(byOs) {
+            log.info("根据当前OS判断配置文件");
+            runProByOs(args);
+        } else {
+            log.info("直接启动");
+            runPro(args);
+        }
+    }
+    
+    public static void runPro(String[] args) {
+        log.info("启动中...");
+        SpringApplication.run(ModulesApplication.class, args);
+        log.info("启动完成");
+    }
+    
+    public static void runProByOs(String[] args) {
         log.info("启动中...");
         SpringApplication app = new SpringApplication(ModulesApplication.class);
         String os = System.getProperty("os.name");
